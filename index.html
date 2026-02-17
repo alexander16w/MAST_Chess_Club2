@@ -1,86 +1,168 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { motion } from "framer-motion";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAST Chess Club</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(#0b1f4b, #1e3a8a, #fff8cc);
-      color: #111;
-      text-align: center;
-    }
-    header, footer {
-      background: #0b1f4b;
-      color: #ffd700;
-      padding: 1rem;
-    }
-    section {
-      padding: 2rem 1rem;
-    }
-    .card {
-      background: white;
-      margin: 1rem auto;
-      padding: 1.5rem;
-      border-radius: 16px;
-      max-width: 500px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    input, button {
-      padding: 0.6rem;
-      margin: 0.4rem 0;
-      width: 90%;
-      max-width: 300px;
-    }
-    button {
-      background: #ffd700;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+export default function ClubWebsite() {
+  const scrollToJoin = () => {
+    document.getElementById("join").scrollIntoView({ behavior: "smooth" });
+  };
 
-<header>
-  <h1>MAST Chess Club ♟️</h1>
-</header>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-900 via-blue-800 to-yellow-50 text-gray-900">
+      <header className="p-6 shadow-sm bg-blue-900 text-yellow-300 sticky top-0 z-10">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-bold">MAST Chess Club</h1>
+          <nav className="space-x-4">
+            <a href="#about" className="hover:underline">About</a>
+            <a href="#events" className="hover:underline">Meetings</a>
+            <a href="#join" className="hover:underline">Sign Up</a>
+          </nav>
+        </div>
+      </header>
 
-<section>
-  <h2>Welcome!</h2>
-  <p>Play, learn strategy, and compete with friends every Thursday Lunch B in the Media Center.</p>
-</section>
+      <section className="relative py-20 text-center text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-900 opacity-90"></div>
+        <motion.div
+          className="relative z-10"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-extrabold mb-4">
+            Welcome to the MAST Chess Club ♟️
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto mb-6">
+            Play, learn strategy, and compete with friends every week in a fun
+            and welcoming environment.
+          </p>
+          <Button
+            onClick={scrollToJoin}
+            className="bg-yellow-400 text-blue-900 hover:bg-yellow-300"
+            size="lg"
+          >
+            Join Us
+          </Button>
+        </motion.div>
+      </section>
 
-<section>
-  <div class="card">
-    <h3>Weekly Meeting</h3>
-    <p><strong>When:</strong> Thursday Lunch B</p>
-    <p><strong>Where:</strong> Media Center</p>
-  </div>
-</section>
+      <motion.section
+        id="about"
+        className="py-16 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h3 className="text-3xl font-bold mb-6 text-blue-900">
+            About Our Club
+          </h3>
+          <p className="text-gray-600">
+            The MAST Chess Club is a place for students of all skill levels to
+            enjoy chess, improve their thinking skills, and meet new friends.
+            Whether you are a beginner or an experienced player, everyone is welcome!
+          </p>
+        </div>
+      </motion.section>
 
-<section>
-  <div class="card">
-    <h3>Sign Up to Join</h3>
-    <form action="https://formsubmit.co/albadalyan@ctemc.org" method="POST">
-      <input type="hidden" name="_subject" value="New MAST Chess Club Sign Up">
-      <input type="hidden" name="_captcha" value="false">
+      <motion.section
+        className="py-16 bg-yellow-50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h3 className="text-3xl font-bold mb-10 text-blue-900">
+            Why Join?
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+              <CardContent className="p-6">
+                <h4 className="font-semibold text-lg mb-2">Improve Strategy</h4>
+                <p className="text-gray-600">Develop critical thinking and decision-making skills.</p>
+              </CardContent>
+            </Card>
+            <Card className="rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+              <CardContent className="p-6">
+                <h4 className="font-semibold text-lg mb-2">Make Friends</h4>
+                <p className="text-gray-600">Meet students who share your interest in chess.</p>
+              </CardContent>
+            </Card>
+            <Card className="rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+              <CardContent className="p-6">
+                <h4 className="font-semibold text-lg mb-2">Compete</h4>
+                <p className="text-gray-600">Participate in school tournaments and competitions.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </motion.section>
 
-      <br>
-      <input type="text" name="name" placeholder="Full Name" required><br>
-      <input type="email" name="email" placeholder="Email" required><br>
-      <input type="text" name="grade" placeholder="Grade" required><br>
-      <button type="submit">Submit Sign Up</button>
-    </form>
-  </div>
-</section>
+      <motion.section
+        id="events"
+        className="py-16 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h3 className="text-3xl font-bold mb-6 text-blue-900">Weekly Meetings</h3>
+          <Card className="rounded-2xl shadow-md hover:shadow-xl transition duration-300">
+            <CardContent className="p-6">
+              <h4 className="text-xl font-semibold mb-2">Thursday Lunch B</h4>
+              <p className="text-gray-600 mb-2">Location: Media Center</p>
+              <p className="text-gray-600">
+                Join us each week for casual games, lessons, and friendly competition.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </motion.section>
 
-<footer>
-  <p>© 2026 MAST Chess Club</p>
-</footer>
+      <motion.section
+        id="join"
+        className="py-20 bg-yellow-50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-xl mx-auto px-4">
+          <h3 className="text-3xl font-bold mb-6 text-center text-blue-900">Sign Up to Join</h3>
+          <form
+            action="https://formsubmit.co/albadalyan@ctemc.org"
+            method="POST"
+            className="space-y-4 bg-blue-50 p-6 rounded-2xl shadow-lg"
+          >
+            <input type="hidden" name="_subject" value="New MAST Chess Club Sign Up" />
+            <input type="hidden" name="_captcha" value="false" />
+            <div>
+              <Label htmlFor="name">Full Name</Label>
+              <Input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <Label htmlFor="grade">Grade</Label>
+              <Input id="grade" name="grade" placeholder="Your grade" required />
+            </div>
+            <Button type="submit" className="w-full bg-yellow-400 text-blue-900 hover:bg-yellow-300">
+              Submit Sign Up
+            </Button>
+          </form>
+        </div>
+      </motion.section>
 
-</body>
-</html>
+      <footer className="py-8 bg-blue-900 text-yellow-300 text-center">
+        <p>© {new Date().getFullYear()} MAST Chess Club. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
