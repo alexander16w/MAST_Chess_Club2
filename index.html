@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAST Chess Club</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#0b1f4b, #1e3a8a, #fff8cc);
+      color: #111;
+      text-align: center;
+    }
+    header, footer {
+      background: #0b1f4b;
+      color: #ffd700;
+      padding: 1rem;
+    }
+    section {
+      padding: 2rem 1rem;
+    }
+    .card {
+      background: white;
+      margin: 1rem auto;
+      padding: 1.5rem;
+      border-radius: 16px;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 0.6rem;
+      margin: 0.4rem 0;
+      width: 90%;
+      max-width: 300px;
+    }
+    button {
+      background: #ffd700;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MAST Chess Club ♟️</h1>
+</header>
+
+<section>
+  <h2>Welcome!</h2>
+  <p>Play, learn strategy, and compete with friends every Thursday Lunch B in the Media Center.</p>
+</section>
+
+<section>
+  <div class="card">
+    <h3>Weekly Meeting</h3>
+    <p><strong>When:</strong> Thursday Lunch B</p>
+    <p><strong>Where:</strong> Media Center</p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h3>Sign Up to Join</h3>
+    <form action="https://formsubmit.co/albadalyan@ctemc.org" method="POST">
+      <input type="hidden" name="_subject" value="New MAST Chess Club Sign Up">
+      <input type="hidden" name="_captcha" value="false">
+
+      <br>
+      <input type="text" name="name" placeholder="Full Name" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="text" name="grade" placeholder="Grade" required><br>
+      <button type="submit">Submit Sign Up</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 MAST Chess Club</p>
+</footer>
+
+</body>
+</html>
