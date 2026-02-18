@@ -14,28 +14,14 @@
       font-family: 'Baloo 2', sans-serif;
       background: linear-gradient(to bottom, #0a1a4a, #1e3a8a, #fff7cc);
       color: #1f2937;
+      scroll-behavior: smooth;
     }
 
     /* ⭐ Bigger Headers */
-    h1 {
-      font-size: 48px;
-      font-weight: 800;
-    }
-
-    h2 {
-      font-size: 42px;
-      font-weight: 800;
-    }
-
-    h3 {
-      font-size: 36px;
-      font-weight: 700;
-    }
-
-    h4 {
-      font-size: 28px;
-      font-weight: 700;
-    }
+    h1 { font-size: 48px; font-weight: 800; }
+    h2 { font-size: 42px; font-weight: 800; }
+    h3 { font-size: 36px; font-weight: 700; }
+    h4 { font-size: 28px; font-weight: 700; }
 
     header {
       background: #0a1a4a;
@@ -59,6 +45,7 @@
       color: #facc15;
       margin-left: 20px;
       text-decoration: none;
+      font-size: 20px;
     }
 
     nav a:hover {
@@ -70,6 +57,11 @@
       padding: 120px 20px;
       background: linear-gradient(to right, #1e3a8a, #0a1a4a);
       color: white;
+    }
+
+    /* ⭐ Glowing Hero Title */
+    .hero h2 {
+      text-shadow: 0 0 12px rgba(255,255,255,0.6);
     }
 
     .btn {
@@ -88,6 +80,17 @@
 
     section {
       padding: 80px 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    /* ⭐ Section Fade-In Animation */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .section-title {
@@ -117,8 +120,10 @@
       transition: 0.3s;
     }
 
+    /* ⭐ Hover Animation */
     .card:hover {
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
 
     /* ⭐ Leadership Card Animations */
@@ -171,13 +176,12 @@
 
   <script>
     function scrollToJoin() {
-      window.scrollTo(0,0);
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </head>
 
-<body onload="window.scrollTo(0,0)">
+<body>
 
   <header>
     <div class="container">
@@ -237,7 +241,7 @@
   </section>
 
   <!-- ⭐ LEADERSHIP SECTION -->
-  <section id="leadership" style="background:#0a1a4a; color:white; padding:80px 20px;">
+  <section id="leadership" style="background:#0a1a4a; color:white;">
     <h3 class="section-title" style="color:white;">Club Leadership</h3>
 
     <p class="text-center" style="max-width:700px; margin:0 auto 40px; color:white;">
@@ -247,7 +251,7 @@
     <div class="card-grid" style="max-width:900px; margin:auto;">
 
       <div class="card leader-card" style="background:white; color:#0a1a4a;">
-        <h4>President</h4>
+        <h4>President ♔</h4>
         <p style="font-size:20px; font-weight:600;">Alexander Badalyan</p>
         <p style="margin-top:10px; font-size:16px;">
           <a href="mailto:albadalyan@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
@@ -257,7 +261,7 @@
       </div>
 
       <div class="card leader-card" style="background:white; color:#0a1a4a;">
-        <h4>President</h4>
+        <h4>President ♔</h4>
         <p style="font-size:20px; font-weight:600;">Cole Buter</p>
         <p style="margin-top:10px; font-size:16px;">
           <a href="mailto:cobutler@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
@@ -267,7 +271,7 @@
       </div>
 
       <div class="card leader-card" style="background:white; color:#0a1a4a;">
-        <h4>Vice President</h4>
+        <h4>Vice President ♕</h4>
         <p style="font-size:20px; font-weight:600;">Jack McGimpsey</p>
         <p style="margin-top:10px; font-size:16px;">
           <a href="mailto:jomcgimpsey@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
