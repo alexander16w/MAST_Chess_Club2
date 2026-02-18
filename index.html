@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAST Chess Club</title>
 
+  <!-- ⭐ BALOO 2 FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Baloo 2', sans-serif;
       background: linear-gradient(to bottom, #0a1a4a, #1e3a8a, #fff7cc);
       color: #1f2937;
     }
@@ -98,6 +101,22 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     }
 
+    /* ⭐ Leadership Card Animations */
+    .leader-card {
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .leader-card:nth-child(1) { animation-delay: 0.1s; }
+    .leader-card:nth-child(2) { animation-delay: 0.25s; }
+    .leader-card:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
     form {
       background: #e0e7ff;
       padding: 30px;
@@ -143,7 +162,7 @@
   <header>
     <div class="container">
 
-      <!-- ⭐ NEW MEDIUM-SIZE LOGO (60px) -->
+      <!-- ⭐ LOGO -->
       <div style="display:flex; align-items:center; gap:12px;">
         <img 
           src="mast_chess_logo.png"
@@ -169,7 +188,7 @@
     <button class="btn" onclick="scrollToJoin()">Join Us</button>
   </section>
 
-  <!-- ⭐ WHITE ABOUT SECTION -->
+  <!-- ⭐ ABOUT SECTION -->
   <section id="about" style="background:#0a1a4a; color:white;">
     <h3 class="section-title" style="color:white;">About Our Club</h3>
     <p class="text-center" style="max-width: 700px; margin: auto; color:white;">
@@ -178,6 +197,7 @@
     </p>
   </section>
 
+  <!-- ⭐ WHY JOIN -->
   <section style="background: #fff7cc;">
     <h3 class="section-title">Why Join?</h3>
     <div class="card-grid">
@@ -196,6 +216,50 @@
     </div>
   </section>
 
+  <!-- ⭐ LEADERSHIP SECTION -->
+  <section id="leadership" style="background:#0a1a4a; color:white; padding:80px 20px;">
+    <h3 class="section-title" style="color:white;">Club Leadership</h3>
+
+    <p class="text-center" style="max-width:700px; margin:0 auto 40px; color:white;">
+      Meet the students who help run the MAST Chess Club. Reach out if you have any questions — we’re always happy to help!
+    </p>
+
+    <div class="card-grid" style="max-width:900px; margin:auto;">
+
+      <div class="card leader-card" style="background:white; color:#0a1a4a;">
+        <h4 style="margin-top:0;">President</h4>
+        <p style="font-size:20px; font-weight:600;">Alexander Badalyan</p>
+        <p style="margin-top:10px; font-size:16px;">
+          <a href="mailto:albadalyan@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
+            albadalyan@ctemc.org
+          </a>
+        </p>
+      </div>
+
+      <div class="card leader-card" style="background:white; color:#0a1a4a;">
+        <h4 style="margin-top:0;">President</h4>
+        <p style="font-size:20px; font-weight:600;">Cole Buter</p>
+        <p style="margin-top:10px; font-size:16px;">
+          <a href="mailto:cobutler@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
+            cobutler@ctemc.org
+          </a>
+        </p>
+      </div>
+
+      <div class="card leader-card" style="background:white; color:#0a1a4a;">
+        <h4 style="margin-top:0;">Vice President</h4>
+        <p style="font-size:20px; font-weight:600;">Jack McGimpsey</p>
+        <p style="margin-top:10px; font-size:16px;">
+          <a href="mailto:jomcgimpsey@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
+            jomcgimpsey@ctemc.org
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ⭐ WEEKLY MEETINGS -->
   <section id="events">
     <h3 class="section-title">Weekly Meetings</h3>
     <div class="card" style="max-width: 500px; margin: auto;">
@@ -204,7 +268,6 @@
       <p>Join us each week for casual games, lessons, and friendly competition.</p>
     </div>
 
-    <!-- ⭐ STANDINGS BUTTON -->
     <div style="text-align:center; margin-top:20px;">
       <a 
         href="https://docs.google.com/spreadsheets/d/1O4QR9PjSRKE6_7ANQIGTYtaTLN7XHoRqW7Q95MgFJ98/edit?gid=0#gid=0" 
@@ -216,6 +279,7 @@
     </div>
   </section>
 
+  <!-- ⭐ SIGN UP -->
   <section id="join" style="background: #fff7cc;">
     <h3 class="section-title">Sign Up to Join</h3>
 
