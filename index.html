@@ -132,22 +132,23 @@
 
   <script>
     function scrollToJoin() {
+      window.scrollTo(0,0);
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </head>
 
-<body>
+<body onload="window.scrollTo(0,0)">
 
   <header>
     <div class="container">
 
-      <!-- ⭐ NEW LOGO + TITLE -->
+      <!-- ⭐ NEW MEDIUM-SIZE LOGO (60px) -->
       <div style="display:flex; align-items:center; gap:12px;">
         <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Chess_klt45.svg/240px-Chess_klt45.svg.png"
-          alt="Chess Logo"
-          style="height:40px; width:40px;"
+          src="mast_chess_logo.png"
+          alt="MAST Chess Club Logo"
+          style="height:60px; width:auto;"
         >
         <h1 style="margin:0;">MAST Chess Club</h1>
       </div>
@@ -168,7 +169,7 @@
     <button class="btn" onclick="scrollToJoin()">Join Us</button>
   </section>
 
-  <!-- ⭐ UPDATED ABOUT SECTION WITH WHITE TEXT -->
+  <!-- ⭐ WHITE ABOUT SECTION -->
   <section id="about" style="background:#0a1a4a; color:white;">
     <h3 class="section-title" style="color:white;">About Our Club</h3>
     <p class="text-center" style="max-width: 700px; margin: auto; color:white;">
@@ -203,7 +204,7 @@
       <p>Join us each week for casual games, lessons, and friendly competition.</p>
     </div>
 
-    <!-- ⭐ TOURNAMENT STANDINGS BUTTON -->
+    <!-- ⭐ STANDINGS BUTTON -->
     <div style="text-align:center; margin-top:20px;">
       <a 
         href="https://docs.google.com/spreadsheets/d/1O4QR9PjSRKE6_7ANQIGTYtaTLN7XHoRqW7Q95MgFJ98/edit?gid=0#gid=0" 
@@ -241,4 +242,3 @@
 
 </body>
 </html>
-
