@@ -141,7 +141,17 @@
 
   <header>
     <div class="container">
-      <h1>MAST Chess Club</h1>
+
+      <!-- ⭐ NEW LOGO + TITLE -->
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Chess_klt45.svg/240px-Chess_klt45.svg.png"
+          alt="Chess Logo"
+          style="height:40px; width:40px;"
+        >
+        <h1 style="margin:0;">MAST Chess Club</h1>
+      </div>
+
       <nav>
         <a href="#about">About</a>
         <a href="#events">Meetings</a>
@@ -158,9 +168,10 @@
     <button class="btn" onclick="scrollToJoin()">Join Us</button>
   </section>
 
-  <section id="about">
-    <h3 class="section-title">About Our Club</h3>
-    <p class="text-center" style="max-width: 700px; margin: auto;">
+  <!-- ⭐ UPDATED ABOUT SECTION WITH WHITE TEXT -->
+  <section id="about" style="background:#0a1a4a; color:white;">
+    <h3 class="section-title" style="color:white;">About Our Club</h3>
+    <p class="text-center" style="max-width: 700px; margin: auto; color:white;">
       The MAST Chess Club is a place for students of all skill levels to enjoy chess, improve their thinking skills,
       and meet new friends. Whether you are a beginner or an experienced player, everyone is welcome!
     </p>
@@ -192,7 +203,7 @@
       <p>Join us each week for casual games, lessons, and friendly competition.</p>
     </div>
 
-    <!-- ⭐ ADDED TOURNAMENT STANDINGS BUTTON -->
+    <!-- ⭐ TOURNAMENT STANDINGS BUTTON -->
     <div style="text-align:center; margin-top:20px;">
       <a 
         href="https://docs.google.com/spreadsheets/d/1O4QR9PjSRKE6_7ANQIGTYtaTLN7XHoRqW7Q95MgFJ98/edit?gid=0#gid=0" 
@@ -202,8 +213,6 @@
         View Tournament Standings
       </a>
     </div>
-    <!-- ⭐ END OF ADDED BUTTON -->
-
   </section>
 
   <section id="join" style="background: #fff7cc;">
