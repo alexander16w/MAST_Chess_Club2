@@ -146,24 +146,22 @@
     }
   </style>
 
-  <!-- ⭐ FIXED COUNTDOWN LOGIC (11:30 AM–12:00 PM Thursdays) -->
+  <!-- Correct countdown logic: Thursday 11:30 AM–12:00 PM -->
   <script>
     function scrollToJoin() {
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
     }
 
+    // Get the next Thursday at 11:30 AM
     function getNextMeetingStart() {
       const now = new Date();
-      const day = now.getDay(); // 0 = Sun, 4 = Thu
       const next = new Date(now);
 
-      next.setHours(11, 30, 0, 0); // 11:30 AM
-
-      if (day > 4 || (day === 4 && now > next)) {
-        next.setDate(now.getDate() + ((11 - day) % 7));
-      } else {
-        next.setDate(now.getDate() + ((4 - day + 7) % 7));
-      }
+      // Find next Thursday
+      const day = now.getDay(); // 0=Sun ... 4=Thu
+      const daysUntilThursday = (4 - day + 7) % 7 || 7; // if today is Thu and we're past meeting, we’ll handle below
+      next.setDate(now.getDate() + daysUntilThursday);
+      next.setHours(11, 30, 0, 0);
 
       return next;
     }
@@ -172,6 +170,7 @@
       const now = new Date();
       const day = now.getDay();
 
+      // Define today's meeting window if it's Thursday
       if (day === 4) {
         const meetingStart = new Date(now);
         meetingStart.setHours(11, 30, 0, 0);
@@ -181,19 +180,29 @@
 
         if (now >= meetingStart && now <= meetingEnd) {
           document.getElementById("countdown").innerHTML =
-            "Meeting is happening now (11:30 AM – 12:00 PM)!";
+            "Meeting is happening now (Thursday 11:30 AM – 12:00 PM)!";
+          return;
+        }
+
+        // If it's after 12:00 PM Thursday, next meeting is next Thursday
+        if (now > meetingEnd) {
+          const next = getNextMeetingStart();
+          const diff = next - now;
+
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+
+          document.getElementById("countdown").innerHTML =
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
           return;
         }
       }
 
+      // Otherwise, count down to the next Thursday 11:30 AM
       const next = getNextMeetingStart();
       const diff = next - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML =
-          "Meeting is happening now (11:30 AM – 12:00 PM)!";
-        return;
-      }
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
