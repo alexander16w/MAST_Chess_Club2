@@ -55,16 +55,17 @@
       text-decoration: underline;
     }
 
+    /* ⭐ HERO SECTION (now yellow + navy text) */
     .hero {
-      text-align: center;
-      padding: 120px 20px;
-      background: linear-gradient(to right, #1e3a8a, #0a1a4a);
-      color: white;
+      background:#fff7cc;
+      color:#0a1a4a;
+      text-align:center;
+      padding:120px 20px;
     }
 
-    /* ⭐ Glowing Hero Title */
     .hero h2 {
-      text-shadow: 0 0 12px rgba(255,255,255,0.6);
+      text-shadow:none;
+      color:#0a1a4a;
     }
 
     .btn {
@@ -88,7 +89,6 @@
       animation: fadeIn 1s ease-out forwards;
     }
 
-    /* ⭐ Section Fade-In Animation */
     @keyframes fadeIn {
       to {
         opacity: 1;
@@ -123,13 +123,11 @@
       transition: 0.3s;
     }
 
-    /* ⭐ Hover Animation */
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
 
-    /* ⭐ Leadership Card Animations */
     .leader-card {
       transform: translateY(20px);
       opacity: 0;
@@ -182,10 +180,9 @@
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
     }
 
-    // ⭐ Get next Thursday 11:30 AM
     function getNextMeeting() {
       const now = new Date();
-      const day = now.getDay(); // 0 = Sunday, 4 = Thursday
+      const day = now.getDay();
       const next = new Date(now);
 
       next.setHours(11, 30, 0, 0);
@@ -229,14 +226,8 @@
 
   <header>
     <div class="container">
-
-      <!-- ⭐ LOGO -->
       <div style="display:flex; align-items:center; gap:12px;">
-        <img 
-          src="mast_chess_logo.png"
-          alt="MAST Chess Club Logo"
-          style="height:60px; width:auto;"
-        >
+        <img src="mast_chess_logo.png" alt="MAST Chess Club Logo" style="height:60px; width:auto;">
         <h1 style="margin:0;">MAST Chess Club</h1>
       </div>
 
@@ -249,6 +240,7 @@
     </div>
   </header>
 
+  <!-- ⭐ UPDATED HERO SECTION -->
   <section class="hero">
     <h2>Welcome to the MAST Chess Club ♟️</h2>
     <p style="max-width: 600px; margin: 20px auto;">
@@ -294,14 +286,11 @@
     </p>
 
     <div class="card-grid" style="max-width:900px; margin:auto;">
-
       <div class="card leader-card" style="background:white; color:#0a1a4a;">
         <h4>President ♔</h4>
         <p style="font-size:20px; font-weight:600;">Alexander Badalyan</p>
         <p style="margin-top:10px; font-size:16px;">
-          <a href="mailto:albadalyan@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
-            albadalyan@ctemc.org
-          </a>
+          <a href="mailto:albadalyan@ctemc.org" style="color:#1e3a8a; text-decoration:none;">albadalyan@ctemc.org</a>
         </p>
       </div>
 
@@ -309,9 +298,7 @@
         <h4>President ♔</h4>
         <p style="font-size:20px; font-weight:600;">Cole Buter</p>
         <p style="margin-top:10px; font-size:16px;">
-          <a href="mailto:cobutler@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
-            cobutler@ctemc.org
-          </a>
+          <a href="mailto:cobutler@ctemc.org" style="color:#1e3a8a; text-decoration:none;">cobutler@ctemc.org</a>
         </p>
       </div>
 
@@ -319,16 +306,13 @@
         <h4>Vice President ♕</h4>
         <p style="font-size:20px; font-weight:600;">Jack McGimpsey</p>
         <p style="margin-top:10px; font-size:16px;">
-          <a href="mailto:jomcgimpsey@ctemc.org" style="color:#1e3a8a; text-decoration:none;">
-            jomcgimpsey@ctemc.org
-          </a>
+          <a href="mailto:jomcgimpsey@ctemc.org" style="color:#1e3a8a; text-decoration:none;">jomcgimpsey@ctemc.org</a>
         </p>
       </div>
-
     </div>
   </section>
 
-  <!-- ⭐ WEEKLY MEETINGS (NOW YELLOW) -->
+  <!-- ⭐ WEEKLY MEETINGS (YELLOW) -->
   <section id="events" style="background:#fff7cc;">
     <h3 class="section-title">Weekly Meetings</h3>
 
