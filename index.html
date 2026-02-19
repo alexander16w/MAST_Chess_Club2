@@ -55,6 +55,20 @@
       text-decoration: underline;
     }
 
+    /* ⭐ Header Button */
+    .header-btn {
+      background:#facc15;
+      color:#0a1a4a;
+      padding:8px 16px;
+      border-radius:8px;
+      margin-left:20px;
+      font-weight:600;
+    }
+
+    .header-btn:hover {
+      background:#fde047;
+    }
+
     .hero {
       text-align: center;
       padding: 120px 20px;
@@ -188,17 +202,12 @@
       const day = now.getDay(); // 0 = Sunday, 4 = Thursday
       const next = new Date(now);
 
-      // Start from today, set time to 11:30
       next.setHours(11, 30, 0, 0);
 
       if (day > 4 || (day === 4 && now > next)) {
-        // After this week's Thursday 11:30 → go to next Thursday
-        const daysUntilNextThursday = (11 - day) % 7; // 4 + 7 = 11
-        next.setDate(now.getDate() + daysUntilNextThursday);
+        next.setDate(now.getDate() + ((11 - day) % 7));
       } else {
-        // Before or on Thursday before 11:30 → this Thursday
-        const daysUntilThursday = (4 - day + 7) % 7;
-        next.setDate(now.getDate() + daysUntilThursday);
+        next.setDate(now.getDate() + ((4 - day + 7) % 7));
       }
 
       return next;
@@ -248,6 +257,7 @@
       <nav>
         <a href="#about">About</a>
         <a href="#events">Meetings</a>
+        <a href="#puzzle" class="header-btn">Puzzle</a>
         <a href="#join">Sign Up</a>
       </nav>
     </div>
@@ -357,15 +367,17 @@
     </div>
   </section>
 
-  <!-- ⭐ DAILY CHESS PUZZLE -->
-  <section id="puzzle" style="background:#fff7cc;">
-    <h3 class="section-title">Daily Chess Puzzle</h3>
+  <!-- ⭐ DAILY CHESS PUZZLE (NEW BACKGROUND + CARD) -->
+  <section id="puzzle" style="background:#0a1a4a; padding:80px 20px; color:white;">
+    <h3 class="section-title" style="color:white;">Daily Chess Puzzle</h3>
 
     <div style="display:flex; justify-content:center;">
-      <iframe 
-        src="https://lichess.org/training/frame?theme=blue&bg=light" 
-        style="width:400px; height:444px; border:none;">
-      </iframe>
+      <div style="background:white; padding:20px; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <iframe 
+          src="https://lichess.org/training/frame?theme=blue&bg=light" 
+          style="width:400px; height:444px; border:none; border-radius:12px;">
+        </iframe>
+      </div>
     </div>
   </section>
 
@@ -396,4 +408,3 @@
 
 </body>
 </html>
-
