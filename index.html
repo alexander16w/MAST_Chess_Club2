@@ -101,10 +101,6 @@
       margin-bottom: 20px;
     }
 
-    .text-center {
-      text-align: center;
-    }
-
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -150,17 +146,18 @@
     }
   </style>
 
+  <!-- ⭐ FIXED COUNTDOWN LOGIC (11:30 AM–12:00 PM Thursdays) -->
   <script>
     function scrollToJoin() {
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
     }
 
-    function getNextMeeting() {
+    function getNextMeetingStart() {
       const now = new Date();
-      const day = now.getDay();
+      const day = now.getDay(); // 0 = Sun, 4 = Thu
       const next = new Date(now);
 
-      next.setHours(11, 30, 0, 0);
+      next.setHours(11, 30, 0, 0); // 11:30 AM
 
       if (day > 4 || (day === 4 && now > next)) {
         next.setDate(now.getDate() + ((11 - day) % 7));
@@ -172,12 +169,29 @@
     }
 
     function updateCountdown() {
-      const next = getNextMeeting();
       const now = new Date();
+      const day = now.getDay();
+
+      if (day === 4) {
+        const meetingStart = new Date(now);
+        meetingStart.setHours(11, 30, 0, 0);
+
+        const meetingEnd = new Date(now);
+        meetingEnd.setHours(12, 0, 0, 0);
+
+        if (now >= meetingStart && now <= meetingEnd) {
+          document.getElementById("countdown").innerHTML =
+            "Meeting is happening now (11:30 AM – 12:00 PM)!";
+          return;
+        }
+      }
+
+      const next = getNextMeetingStart();
       const diff = next - now;
 
       if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "Meeting is happening now!";
+        document.getElementById("countdown").innerHTML =
+          "Meeting is happening now (11:30 AM – 12:00 PM)!";
         return;
       }
 
