@@ -181,6 +181,52 @@
     function scrollToJoin() {
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
     }
+
+    // ⭐ Get next Thursday 11:30 AM
+    function getNextMeeting() {
+      const now = new Date();
+      const day = now.getDay(); // 0 = Sunday, 4 = Thursday
+      const next = new Date(now);
+
+      // Start from today, set time to 11:30
+      next.setHours(11, 30, 0, 0);
+
+      if (day > 4 || (day === 4 && now > next)) {
+        // After this week's Thursday 11:30 → go to next Thursday
+        const daysUntilNextThursday = (11 - day) % 7; // 4 + 7 = 11
+        next.setDate(now.getDate() + daysUntilNextThursday);
+      } else {
+        // Before or on Thursday before 11:30 → this Thursday
+        const daysUntilThursday = (4 - day + 7) % 7;
+        next.setDate(now.getDate() + daysUntilThursday);
+      }
+
+      return next;
+    }
+
+    function updateCountdown() {
+      const next = getNextMeeting();
+      const now = new Date();
+      const diff = next - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "Meeting is happening now!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
   </script>
 </head>
 
@@ -290,9 +336,14 @@
   <section id="events">
     <h3 class="section-title">Weekly Meetings</h3>
     <div class="card" style="max-width: 500px; margin: auto;">
-      <h4>Thursdays Lunch B</h4>
+      <h4>Thursday Lunch B</h4>
       <p>Location: Media Center</p>
       <p>Join us each week for casual games, lessons, and friendly competition.</p>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <h3 class="section-title">Next Meeting Countdown</h3>
+      <p id="countdown" style="font-size:28px; font-weight:700; color:#0a1a4a;"></p>
     </div>
 
     <div style="text-align:center; margin-top:20px;">
@@ -303,6 +354,18 @@
       >
         View Tournament Standings
       </a>
+    </div>
+  </section>
+
+  <!-- ⭐ DAILY CHESS PUZZLE -->
+  <section id="puzzle" style="background:#fff7cc;">
+    <h3 class="section-title">Daily Chess Puzzle</h3>
+
+    <div style="display:flex; justify-content:center;">
+      <iframe 
+        src="https://lichess.org/training/frame?theme=blue&bg=light" 
+        style="width:400px; height:444px; border:none;">
+      </iframe>
     </div>
   </section>
 
@@ -333,3 +396,4 @@
 
 </body>
 </html>
+
