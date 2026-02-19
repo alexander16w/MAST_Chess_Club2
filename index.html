@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAST Chess Club</title>
 
-  <!-- ⭐ Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="mast_chess_logo.png?v=2">
 
-  <!-- ⭐ BALOO 2 FONT -->
+  <!-- Baloo 2 font -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -20,7 +20,6 @@
       scroll-behavior: smooth;
     }
 
-    /* ⭐ Bigger Headers */
     h1 { font-size: 48px; font-weight: 800; }
     h2 { font-size: 42px; font-weight: 800; }
     h3 { font-size: 36px; font-weight: 700; }
@@ -55,7 +54,6 @@
       text-decoration: underline;
     }
 
-    /* ⭐ HERO SECTION (yellow + navy text) */
     .hero {
       background:#fff7cc;
       color:#0a1a4a;
@@ -103,6 +101,10 @@
       margin-bottom: 20px;
     }
 
+    .text-center {
+      text-align: center;
+    }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -122,6 +124,21 @@
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .leader-card {
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .leader-card:nth-child(1) { animation-delay: 0.1s; }
+    .leader-card:nth-child(2) { animation-delay: 0.25s; }
+    .leader-card:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     footer {
@@ -198,7 +215,7 @@
     </div>
   </header>
 
-  <!-- ⭐ HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <h2>Welcome to the MAST Chess Club ♟️</h2>
     <p style="max-width: 600px; margin: 20px auto;">
@@ -207,7 +224,7 @@
     <button class="btn" onclick="scrollToJoin()">Join Us</button>
   </section>
 
-  <!-- ⭐ ABOUT SECTION -->
+  <!-- ABOUT -->
   <section id="about" style="background:#0a1a4a; color:white;">
     <h3 class="section-title" style="color:white;">About Our Club</h3>
     <p class="text-center" style="max-width: 700px; margin: auto; color:white;">
@@ -216,7 +233,7 @@
     </p>
   </section>
 
-  <!-- ⭐ WHY JOIN -->
+  <!-- WHY JOIN -->
   <section style="background: #fff7cc;">
     <h3 class="section-title">Why Join?</h3>
     <div class="card-grid">
@@ -235,7 +252,42 @@
     </div>
   </section>
 
-  <!-- ⭐ WEEKLY MEETINGS -->
+  <!-- LEADERSHIP -->
+  <section id="leadership" style="background:#0a1a4a; color:white;">
+    <h3 class="section-title" style="color:white;">Club Leadership</h3>
+
+    <p class="text-center" style="max-width:700px; margin:0 auto 40px; color:white;">
+      Meet the students who help run the MAST Chess Club. Reach out if you have any questions — we’re always happy to help!
+    </p>
+
+    <div class="card-grid" style="max-width:900px; margin:auto;">
+      <div class="card leader-card" style="background:white; color:#0a1a4a;">
+        <h4>President ♔</h4>
+        <p style="font-size:20px; font-weight:600;">Alexander Badalyan</p>
+        <p style="margin-top:10px; font-size:16px;">
+          <a href="mailto:albadalyan@ctemc.org" style="color:#1e3a8a; text-decoration:none;">albadalyan@ctemc.org</a>
+        </p>
+      </div>
+
+      <div class="card leader-card" style="background:white; color:#0a1a4a;">
+        <h4>President ♔</h4>
+        <p style="font-size:20px; font-weight:600;">Cole Buter</p>
+        <p style="margin-top:10px; font-size:16px;">
+          <a href="mailto:cobutler@ctemc.org" style="color:#1e3a8a; text-decoration:none;">cobutler@ctemc.org</a>
+        </p>
+      </div>
+
+      <div class="card leader-card" style="background:white; color:#0a1a4a;">
+        <h4>Vice President ♕</h4>
+        <p style="font-size:20px; font-weight:600;">Jack McGimpsey</p>
+        <p style="margin-top:10px; font-size:16px;">
+          <a href="mailto:jomcgimpsey@ctemc.org" style="color:#1e3a8a; text-decoration:none;">jomcgimpsey@ctemc.org</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEKLY MEETINGS -->
   <section id="events" style="background:#fff7cc;">
     <h3 class="section-title">Weekly Meetings</h3>
 
@@ -261,7 +313,7 @@
     </div>
   </section>
 
-  <!-- ⭐ DAILY CHESS PUZZLE -->
+  <!-- DAILY CHESS PUZZLE -->
   <section id="puzzle" style="background:#0a1a4a; padding:80px 20px; color:white;">
     <h3 class="section-title" style="color:white;">Daily Chess Puzzle</h3>
 
@@ -275,7 +327,7 @@
     </div>
   </section>
 
-  <!-- ⭐ SIGN UP (GOOGLE FORM EMBEDDED) -->
+  <!-- SIGN UP (GOOGLE FORM) -->
   <section id="join" style="background:#fff7cc;">
     <h3 class="section-title">Sign Up to Join</h3>
 
