@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAST Chess Club</title>
 
-  <!-- ⭐ Favicon (cache‑busting version) -->
+  <!-- ⭐ Favicon -->
   <link rel="icon" type="image/png" href="mast_chess_logo.png?v=2">
 
   <!-- ⭐ BALOO 2 FONT -->
@@ -103,10 +103,6 @@
       margin-bottom: 20px;
     }
 
-    .text-center {
-      text-align: center;
-    }
-
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -126,44 +122,6 @@
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
-
-    .leader-card {
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeUp 0.8s ease-out forwards;
-    }
-
-    .leader-card:nth-child(1) { animation-delay: 0.1s; }
-    .leader-card:nth-child(2) { animation-delay: 0.25s; }
-    .leader-card:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes fadeUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    form {
-      background: #e0e7ff;
-      padding: 30px;
-      border-radius: 16px;
-      max-width: 450px;
-      margin: auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
     }
 
     footer {
@@ -240,7 +198,7 @@
     </div>
   </header>
 
-  <!-- ⭐ UPDATED HERO SECTION -->
+  <!-- ⭐ HERO SECTION -->
   <section class="hero">
     <h2>Welcome to the MAST Chess Club ♟️</h2>
     <p style="max-width: 600px; margin: 20px auto;">
@@ -277,42 +235,7 @@
     </div>
   </section>
 
-  <!-- ⭐ LEADERSHIP SECTION -->
-  <section id="leadership" style="background:#0a1a4a; color:white;">
-    <h3 class="section-title" style="color:white;">Club Leadership</h3>
-
-    <p class="text-center" style="max-width:700px; margin:0 auto 40px; color:white;">
-      Meet the students who help run the MAST Chess Club. Reach out if you have any questions — we’re always happy to help!
-    </p>
-
-    <div class="card-grid" style="max-width:900px; margin:auto;">
-      <div class="card leader-card" style="background:white; color:#0a1a4a;">
-        <h4>President ♔</h4>
-        <p style="font-size:20px; font-weight:600;">Alexander Badalyan</p>
-        <p style="margin-top:10px; font-size:16px;">
-          <a href="mailto:albadalyan@ctemc.org" style="color:#1e3a8a; text-decoration:none;">albadalyan@ctemc.org</a>
-        </p>
-      </div>
-
-      <div class="card leader-card" style="background:white; color:#0a1a4a;">
-        <h4>President ♔</h4>
-        <p style="font-size:20px; font-weight:600;">Cole Buter</p>
-        <p style="margin-top:10px; font-size:16px;">
-          <a href="mailto:cobutler@ctemc.org" style="color:#1e3a8a; text-decoration:none;">cobutler@ctemc.org</a>
-        </p>
-      </div>
-
-      <div class="card leader-card" style="background:white; color:#0a1a4a;">
-        <h4>Vice President ♕</h4>
-        <p style="font-size:20px; font-weight:600;">Jack McGimpsey</p>
-        <p style="margin-top:10px; font-size:16px;">
-          <a href="mailto:jomcgimpsey@ctemc.org" style="color:#1e3a8a; text-decoration:none;">jomcgimpsey@ctemc.org</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⭐ WEEKLY MEETINGS (YELLOW) -->
+  <!-- ⭐ WEEKLY MEETINGS -->
   <section id="events" style="background:#fff7cc;">
     <h3 class="section-title">Weekly Meetings</h3>
 
@@ -352,25 +275,23 @@
     </div>
   </section>
 
-  <!-- ⭐ SIGN UP -->
-  <section id="join" style="background: #fff7cc;">
+  <!-- ⭐ SIGN UP (GOOGLE FORM EMBEDDED) -->
+  <section id="join" style="background:#fff7cc;">
     <h3 class="section-title">Sign Up to Join</h3>
 
-    <form action="https://formsubmit.co/albadalyan@ctemc.org" method="POST">
-      <input type="hidden" name="_subject" value="New MAST Chess Club Sign Up" />
-      <input type="hidden" name="_captcha" value="false" />
-
-      <label for="name">Full Name</label>
-      <input id="name" name="name" required />
-
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required />
-
-      <label for="grade">Grade</label>
-      <input id="grade" name="grade" required />
-
-      <button class="btn" type="submit" style="width: 100%;">Submit Sign Up</button>
-    </form>
+    <div style="max-width:700px; margin:auto; background:white; padding:20px; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfW7vItRtc-goorVEo5PS5z_tCxwHR9--H6PXtp_5ZnDXUl1Q/viewform?embedded=true"
+        width="100%" 
+        height="900" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="border:none; border-radius:12px;"
+      >
+        Loading…
+      </iframe>
+    </div>
   </section>
 
   <footer>
