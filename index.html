@@ -18,8 +18,6 @@
       background: linear-gradient(to bottom, #0a1a4a, #1e3a8a, #fff7cc);
       color: #1f2937;
       scroll-behavior: smooth;
-      /* Solid white king cursor (♔) via SVG data URL */
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='32' height='32' fill='transparent'/><text x='50%' y='55%' font-size='22' text-anchor='middle' fill='white' dominant-baseline='middle'>&#9812;</text></svg>") 16 16, auto;
     }
 
     /* Bigger text everywhere */
@@ -263,7 +261,6 @@
       const clickable = document.querySelectorAll("button, a");
       clickable.forEach(el => {
         el.addEventListener("click", () => {
-          // Restart sound from beginning each click
           audio.currentTime = 0;
           audio.play().catch(() => {});
         });
@@ -283,7 +280,7 @@
 
 <body>
 
-  <!-- Click sound (add chess-click.mp3 in same folder) -->
+  <!-- Click sound (upload chess-click.mp3 to your repo) -->
   <audio id="click-sound" src="chess-click.mp3" preload="auto"></audio>
 
   <header>
@@ -308,7 +305,7 @@
     <p style="max-width: 600px; margin: 20px auto;">
       Play, learn strategy, and compete with friends every week in a fun and welcoming environment.
     </p>
-    <button class="btn">Join Us</button>
+    <button class="btn" onclick="scrollToJoin()">Join Us</button>
   </section>
 
   <!-- ABOUT -->
