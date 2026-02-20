@@ -18,6 +18,8 @@
       background: linear-gradient(to bottom, #0a1a4a, #1e3a8a, #fff7cc);
       color: #1f2937;
       scroll-behavior: smooth;
+      /* Solid white king cursor (♔) via SVG data URL */
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='32' height='32' fill='transparent'/><text x='50%' y='55%' font-size='22' text-anchor='middle' fill='white' dominant-baseline='middle'>&#9812;</text></svg>") 16 16, auto;
     }
 
     /* Bigger text everywhere */
@@ -147,9 +149,33 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+    /* Scroll-to-top floating button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      background: #facc15;
+      color: #0a1a4a;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #scrollTopBtn:hover {
+      background: #fde047;
+    }
   </style>
 
-  <!-- Correct countdown logic: Thursday 11:30 AM–12:00 PM -->
+  <!-- Countdown + scroll-to-top + click sound -->
   <script>
     function scrollToJoin() {
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
@@ -214,14 +240,51 @@
         `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
+    // Scroll-to-top visibility + behavior
+    function handleScrollButton() {
+      const btn = document.getElementById("scrollTopBtn");
+      if (!btn) return;
+      if (window.scrollY > 200) {
+        btn.style.display = "flex";
+      } else {
+        btn.style.display = "none";
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Click sound on buttons and links
+    function setupClickSound() {
+      const audio = document.getElementById("click-sound");
+      if (!audio) return;
+
+      const clickable = document.querySelectorAll("button, a");
+      clickable.forEach(el => {
+        el.addEventListener("click", () => {
+          // Restart sound from beginning each click
+          audio.currentTime = 0;
+          audio.play().catch(() => {});
+        });
+      });
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       updateCountdown();
       setInterval(updateCountdown, 1000);
+
+      setupClickSound();
+      handleScrollButton();
+      window.addEventListener("scroll", handleScrollButton);
     });
   </script>
 </head>
 
 <body>
+
+  <!-- Click sound (add chess-click.mp3 in same folder) -->
+  <audio id="click-sound" src="chess-click.mp3" preload="auto"></audio>
 
   <header>
     <div class="container">
@@ -245,7 +308,7 @@
     <p style="max-width: 600px; margin: 20px auto;">
       Play, learn strategy, and compete with friends every week in a fun and welcoming environment.
     </p>
-    <button class="btn" onclick="scrollToJoin()">Join Us</button>
+    <button class="btn">Join Us</button>
   </section>
 
   <!-- ABOUT -->
@@ -373,6 +436,9 @@
   <footer>
     © 2026 MAST Chess Club. All rights reserved.
   </footer>
+
+  <!-- Scroll-to-top floating button -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
 </body>
 </html>
