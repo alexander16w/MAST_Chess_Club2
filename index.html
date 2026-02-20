@@ -20,6 +20,9 @@
       scroll-behavior: smooth;
     }
 
+    /* Bigger text everywhere */
+    p { font-size: 21px; }
+
     h1 { font-size: 48px; font-weight: 800; }
     h2 { font-size: 42px; font-weight: 800; }
     h3 { font-size: 36px; font-weight: 700; }
@@ -152,14 +155,15 @@
       document.getElementById("join").scrollIntoView({ behavior: "smooth" });
     }
 
-    // Get the next Thursday at 11:30 AM
+    // Get next Thursday at 11:30 AM
     function getNextMeetingStart() {
       const now = new Date();
       const next = new Date(now);
 
-      // Find next Thursday
       const day = now.getDay(); // 0=Sun ... 4=Thu
-      const daysUntilThursday = (4 - day + 7) % 7 || 7; // if today is Thu and we're past meeting, we’ll handle below
+      let daysUntilThursday = (4 - day + 7) % 7;
+      if (daysUntilThursday === 0) daysUntilThursday = 7;
+
       next.setDate(now.getDate() + daysUntilThursday);
       next.setHours(11, 30, 0, 0);
 
@@ -170,7 +174,6 @@
       const now = new Date();
       const day = now.getDay();
 
-      // Define today's meeting window if it's Thursday
       if (day === 4) {
         const meetingStart = new Date(now);
         meetingStart.setHours(11, 30, 0, 0);
@@ -184,7 +187,6 @@
           return;
         }
 
-        // If it's after 12:00 PM Thursday, next meeting is next Thursday
         if (now > meetingEnd) {
           const next = getNextMeetingStart();
           const diff = next - now;
@@ -200,7 +202,6 @@
         }
       }
 
-      // Otherwise, count down to the next Thursday 11:30 AM
       const next = getNextMeetingStart();
       const diff = next - now;
 
